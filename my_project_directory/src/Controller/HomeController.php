@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
 
           /*Добавление записи в БД*/
-//        $array = ['Renault Logan','Mercedes Benz','Lada Priora'];
+//        $array = ['Peugeot Partner','Mercedes E-class','Lada Vesta'];
 //        for ( $i = 0; $i < count($array); $i++) {
 //            $entityManager = $this->getDoctrine()->getManager();
 //            $auto = new Automobiles();
@@ -24,7 +24,6 @@ class HomeController extends AbstractController
 //            $entityManager->persist($auto);
 //            $entityManager->flush();
 //        }
-//        ;
 
 
         return $this->render('home/index.html.twig', [

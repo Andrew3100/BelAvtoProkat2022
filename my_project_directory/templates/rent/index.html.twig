@@ -1,7 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello RentController!{% endblock %}
-
 {% block left %}
 
+    <br>
+    <br>
+
+    <h4>В нашей компании можно арендовать автомобиль для различных целей, от деловой краткосрочной поездки до длительного путешествия.
+        На Ваш выбор предлагаем множество различных моделей автомобилей</h4>
+    <br>
+    <br>
+
+    <label for="1" class="form-label">Марка автомобиля</label>
+    <select id="1" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+        {% for auto in auto_list %}
+            <option value="/rent?mark={{ auto.mark }}">{{ auto.mark }}</option>
+        {% endfor %}
+    </select>
+
+
+    {#{% for auto in auto_list %}
+        <h1>{{ auto.model }}</h1>
+    {% endfor %}#}
 {% endblock %}
