@@ -51,7 +51,38 @@
         {% endblock %}
 
         {% block body %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <br>
+                        <br>
+                        <br>
+                        <div style="background-color: cadetblue; border-radius: 10px; width: 350px; height: 250px;">
+                        <form style="padding: 15px 20px 25px 30px;">
+                            <label class="form-label">Введите логин</label>
+                            <input class="form-control" name="login">
+                            <br>
+                            <label>Введите пароль</label>
+                            <input class="form-control" name="password">
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn btn-primary" type="submit">Войти</button>
+                                </div>
+                                <div class="col">
+                                    <a class="btn btn-primary">Забыл пароль</a>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                        <div class="col-8">
+                            {% block left %}
 
+                            {% endblock %}
+                        </div>
+                </div>
+            </div>
         {% endblock %}
 
         <!-- Вариант 1: Bootstrap в связке с Popper -->
