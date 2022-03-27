@@ -33,6 +33,10 @@ class AutomobilesRepository extends ServiceEntityRepository
         }
     }
 
+
+
+
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException
@@ -44,6 +48,7 @@ class AutomobilesRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+
 
     // /**
     //  * @return Automobiles[] Returns an array of Automobiles objects
@@ -58,6 +63,7 @@ class AutomobilesRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
+
         ;
     }
     */

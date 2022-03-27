@@ -37,11 +37,16 @@ class RentController extends AbstractController
         for ($i = 0; $i < count($datas['data']); $i++) {
             $array_info[] = array_values((array)($datas['data'][$i]));
         }
-//
-//        echo '<pre>';
-//        var_dump($array_info);
-//        echo '</pre>';
+
+
+        for ($i = 0; $i < count($array_info); $i++) {
+            // Замена ИД авто на его имя
+            $name = array_values((array)$this->getDoctrine()->getRepository(AutomobileMarks::class)->find($array_info[$i][1]))[1];
+            $array_info[$i][1] = $name;
+        }
+
         $datas['data'] = $array_info;
+
         $datas['for_selector'] = $this->getDoctrine()->getRepository(AutomobileMarks::class)->findAll();
         // var_dump($datas);
         return $this->render('rent/index.html.twig', $datas);
