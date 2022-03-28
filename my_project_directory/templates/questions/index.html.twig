@@ -3,5 +3,102 @@
 {% block title %}Hello QuestionsController!{% endblock %}
 
 {% block left %}
+    <br>
+    <br>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Как взять автомобиль в прокат?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <li style="text-align: justify;">Взять автомобиль напрокат очень просто: нужны будут паспорт, права и деньги. Оформляется
+                        договор, составляется акт приёма-передачи, оплачивается аренда (авансом за весь период) и залог, и
+                        всё – Вы уже за рулём)))</li>
+                    <li style="text-align: justify;">Возраст арендатора должен быть не менее 23 лет и стаж вождения не менее 2 лет.</li>
+                    <li style="text-align: justify;">Автомобиль выдаётся чистый, с полным баком бензина марки Аи-95 и должен быть возвращён по окончании срока аренды в таком же состоянии. Если вернуть автомобиль чистым у Вас не получается - ничего страшного - в этом случае Вам просто придётся оплатить сервисный сбор в размере 600 рублей.
+                        Если при сдаче автомобиль будет с неполным баком бензина, то придётся оплатить топливный сбор в
+                        размере 2500 рублей (вне зависимости от того, сколько бензина не хватает в баке). Поэтому, как
+                        правило, наши арендаторы часто сдают автомобили немытыми, но практически всегда –
+                        заправленными!)))</li>
+                    <li style="text-align: justify;">Лимит суточного пробега на наших авто составляет 300 км в сутки. Общий пробег вычисляется умножением. Например, Вы берёте авто на 5 суток. В этом случае общий лимит пробега на весь срок
+                        составит 5х300=1500 км и проехать их будет можно как Вам удобно: в один день проехать 800 км, в
+                        другой – 50 и т.д. Главное, чтобы общий лимит пробега не превысил 1500 км. В случае, если Вы всё же
+                        превысите его, то тоже ничего страшного – перепробег нужно будет оплатить (при возврате авто) из
+                        расчёта 5 рублей за 1 км перепробега.</li>
+                    <li style="text-align: justify;">Залог за автомобиль составляет от 10 000 до 15 000 рублей в зависимости от марки арендуемого авто. Размер залога и стоимость суток аренды очень удобно представлены в разделе Тарифы.
+                        Возврат залога осуществляется следующим образом: в момент возврата автомобиля возвращается
+                        сумма страхового депозита за вычетом 5000 рублей. Оставшаяся часть в сумме 5000 рублей
+                        возвращается Арендатору через 28-30 суток (как правило переводом на банковскую карту), после
+                        проверки штрафов видеофиксации.
+                        Если штрафов нет – Вам на карту просто придут деньги и смс: «Возврат залога по договору аренды
+                        авто». Если штрафы будут, мы с Вами свяжемся, при необходимости предоставим доказательства (это
+                        либо скан-копия протокола, пришедшего по почте, либо скриншот с сайта ГИБДД) и вернём залог за
+                        вычетом сумм штрафов.
+                        Если Ваши штрафы превысят 5000 рублей, Вам придётся доплатить нам разницу. Помните: аккуратное
+                        вождение в данном случае, это залог не только вашей безопасности, но и материального
+                        благополучия!)</li>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Какова политика относительно чистоты автомобиля?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="panel-body">
+                    Вы получаете автомобиль в прокат в идеально чистом состоянии. Если при возврате автомобиля он грязный, то вам придется оплатить стоимость комплексной мойки в размере 600 рублей.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Можно ли взять автомобиль в прокат при возрасте менее 23 лет и стаже менее 2 лет?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="panel-body">
+                    Такие вопросы решаются в индивидуальном порядке. В отдельных случаях мы можем пойти навстречу клиенту и предоставить в аренду автомобиль.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Как можно гарантированно получить определенную модель автомобиля?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="panel-body">
+                    Забронировать понравившуюся модель автомобиля можно на нашем сайте, воспользовавшись формой заказа, выбрав необходимый автомобиль из списка. Уважаемые арендаторы! Мы всегда и всецело стараемся качественно и добросовестно исполнять наши, пусть даже предварительные, договорённости. Но, к сожалению, это не всегда возможно по разным причинам. Бывает,например, что забронированное вами авто попадает в ДТП и выдать его вам не представляется возможным. Именно в таких случаях мы оставляем за собой право замены авто на равноценный другой или на авто выше классом. Например, Вы бронировали Киа Рио, а выдадут вам Тойоту Короллу, но по цене Киа Рио. И всё это, исключительно, с вашего согласия. В таких случаях мы искренне надеемся на ваше понимание!                 </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Могу ли я вернуть автомобиль вне офиса?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="panel-body">
+                    Да, вы можете заблаговременно нас предупредить о том, что вам удобно вернуть автомобиль вне нашего офиса. Стоимость услуги составит 500 рублей, при условии возврата автомобиля в пределах города Белгорода.                 </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    Что включает в себя цена проката?
+                </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                <div class="panel-body">
+                    Включает: стоимость аренды авто, техническое обслуживание, страхование, сезонную резину, предоставление «подменного автомобиля» при поломке или техническом обслуживании взятой на прокат машины. Не включает: стоимость бензина, платных парковок и стоянок, штрафы, перепробег.                 </div>
+            </div>
+        </div>
 
+    </div>
 {% endblock %}
