@@ -30,7 +30,7 @@ class HomeController extends AbstractController
         /*Выборка данных из таблицы*/
         $mark_list = $this->getDoctrine()->getRepository(Automobiles::class)->findAll();
 
-        var_dump(($mark_list));
+//        var_dump(($mark_list));
 
 
 

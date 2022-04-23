@@ -8,8 +8,248 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h4>Тут будет реализация алгоритма принятия решения</h4>
+            <h4 style="color: white">Система поддержки принятия решения по выбору автомобиля в прокате:</h4>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col">
+            <b><label style="color: white" style="color: white" for="target">Выберите цель поездки</label></b>
+            <select id="target" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option>{{ target_get }}</option>
+                {% for target in targets_for_selector %}
+                    <option value="/help/rent?target={{ target.0 }}">{{ target.1 }}</option>
+                {% endfor %}
+            </select>
         </div>
     </div>
+    <br>
+    {% if target == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="len">Длительность поездки</label></b>
+                <select id="len" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option>{{ length_get }}</option>
+                    {% for length in length_for_selector %}
+                        <option value="{{ url }}&length={{ length.0 }}">{{ length.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    {% endif %}
+    <br>
+    {% if length == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="st">Статус поездки</label></b>
+                <select id="st" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option>{{ status_get }}</option>
+                    {% for status in status_for_selector %}
+                        <option value="{{ url }}&status={{ status.0 }}">{{ status.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+
+    {% if status == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="cnt">Количество человек</label></b>
+                <select id="cnt" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&count=1">1</option>
+                    <option value="{{ url }}&count=2">2</option>
+                    <option value="{{ url }}&count=3">3</option>
+                    <option value="{{ url }}&count=4">4</option>
+                    <option value="{{ url }}&count=>5">>5</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+    {% if count == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Вместимость багажника</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&trunk=500-600">500-600</option>
+                    <option value="{{ url }}&trunk=600-800">600-800</option>
+                    <option value="{{ url }}&trunk=800-1000">800-1000</option>
+                    <option value="{{ url }}&trunk=>1000">>1000</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    <br>
+    {% if trunk == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Наличие SoundBar</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&sound=1">Да</option>
+                    <option value="{{ url }}&sound=0">Нет</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+
+    {% if sound == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Коробка передач</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&box=aut">Автомат</option>
+                    <option value="{{ url }}&box=mech">Механика</option>
+                    <option value="{{ url }}&box=android">Робот</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+    <br>
+    {% if box == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Для какой дороги требуется автомобиль</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&road=aut">Пересечённая местность</option>
+                    <option value="{{ url }}&road=mech">Горы</option>
+                    <option value="{{ url }}&road=android">Город</option>
+                    <option value="{{ url }}&road=android1">Песок</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+    {% if road == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Предпочтительный материал салона?</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&interior=1">Кожа</option>
+                    <option value="{{ url }}&interior=2">Ткань</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+    <br>
+
+    {% if interior == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Наличие газа</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&gas=1">Да</option>
+                    <option value="{{ url }}&gas=0">Нет</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+    <br>
+
+    {% if gas == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Разгон до 100 км/ч</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&by100=3">до 3 с</option>
+                    <option value="{{ url }}&by100=5">до 5 с</option>
+                    <option value="{{ url }}&by100=59">5-9 с</option>
+                    <option value="{{ url }}&by100=1013">10-13 с</option>
+                    <option value="{{ url }}&by100=no">Не имеет значения</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+
+    {% if by100 == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" for="trunk">Мощность двигателя</label></b>
+                <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option value="{{ url }}&power=3">50-70</option>
+                    <option value="{{ url }}&power=3">70-90</option>
+                    <option value="{{ url }}&power=3">90-120</option>
+                    <option value="{{ url }}&power=3">120-150</option>
+                    <option value="{{ url }}&power=3">150+</option>
+                </select>
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+    <br>
+    <br>
+    {% if by100 == 'isset' %}
+        <div class="row">
+            <div class="col">
+                <h3 style="color: white"><b>Предположительно Вам подходят следующие автомобили:</b></h3>
+                {%  for l in list %}
+                    <h3 style="color: yellowgreen">{{ l }}</h3>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 {% endblock %}

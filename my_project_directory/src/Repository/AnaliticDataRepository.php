@@ -1,32 +1,31 @@
 <?php
 
 namespace App\Repository;
-namespace App\Repository;
 
-use App\Entity\TargetList;
+use App\Entity\AnaliticData;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method TargetList|null find($id, $lockMode = null, $lockVersion = null)
- * @method TargetList|null findOneBy(array $criteria, array $orderBy = null)
- * @method TargetList[]    findAll()
- * @method TargetList[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method AnaliticData|null find($id, $lockMode = null, $lockVersion = null)
+ * @method AnaliticData|null findOneBy(array $criteria, array $orderBy = null)
+ * @method AnaliticData[]    findAll()
+ * @method AnaliticData[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TargetListRepository extends ServiceEntityRepository
+class AnaliticDataRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TargetList::class);
+        parent::__construct($registry, AnaliticData::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(TargetList $entity, bool $flush = true): void
+    public function add(AnaliticData $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -38,7 +37,7 @@ class TargetListRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(TargetList $entity, bool $flush = true): void
+    public function remove(AnaliticData $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -47,15 +46,15 @@ class TargetListRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TargetList[] Returns an array of TargetList objects
+    //  * @return AnaliticData[] Returns an array of AnaliticData objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
+            ->orderBy('a.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -64,10 +63,10 @@ class TargetListRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TargetList
+    public function findOneBySomeField($value): ?AnaliticData
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

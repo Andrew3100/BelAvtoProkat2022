@@ -1,32 +1,31 @@
 <?php
 
 namespace App\Repository;
-namespace App\Repository;
 
-use App\Entity\TargetList;
+use App\Entity\TypesStatusRent;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method TargetList|null find($id, $lockMode = null, $lockVersion = null)
- * @method TargetList|null findOneBy(array $criteria, array $orderBy = null)
- * @method TargetList[]    findAll()
- * @method TargetList[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TypesStatusRent|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TypesStatusRent|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TypesStatusRent[]    findAll()
+ * @method TypesStatusRent[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TargetListRepository extends ServiceEntityRepository
+class TypesStatusRentRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, TargetList::class);
+        parent::__construct($registry, TypesStatusRent::class);
     }
 
     /**
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function add(TargetList $entity, bool $flush = true): void
+    public function add(TypesStatusRent $entity, bool $flush = true): void
     {
         $this->_em->persist($entity);
         if ($flush) {
@@ -38,7 +37,7 @@ class TargetListRepository extends ServiceEntityRepository
      * @throws ORMException
      * @throws OptimisticLockException
      */
-    public function remove(TargetList $entity, bool $flush = true): void
+    public function remove(TypesStatusRent $entity, bool $flush = true): void
     {
         $this->_em->remove($entity);
         if ($flush) {
@@ -47,7 +46,7 @@ class TargetListRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return TargetList[] Returns an array of TargetList objects
+    //  * @return TypesStatusRent[] Returns an array of TypesStatusRent objects
     //  */
     /*
     public function findByExampleField($value)
@@ -64,7 +63,7 @@ class TargetListRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?TargetList
+    public function findOneBySomeField($value): ?TypesStatusRent
     {
         return $this->createQueryBuilder('t')
             ->andWhere('t.exampleField = :val')
