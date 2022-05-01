@@ -5,24 +5,37 @@
 {% block left %}
     <br>
     <br>
+
+    {% if res == 'isset' %}
+        {% set recomend = ' рекомендует такие решения:' %}
+        {% else %}
+        {% set recomend = '' %}
+    {% endif %}
+
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h4 style="color: white">Система поддержки принятия решения по выбору автомобиля в прокате:</h4>
+            <h4 style="color: white">Система поддержки принятия решения по выбору автомобиля в прокате {{ recomend }}</h4>
         </div>
     </div><br>
-    <div class="row">
-        <div class="col">
-            <b><label style="color: white" style="color: white" for="target">Выберите цель поездки</label></b>
-            <select id="target" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
-                    <option>{{ target_get }}</option>
-                {% for target in targets_for_selector %}
-                    <option value="/help/rent?target={{ target.0 }}">{{ target.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </div>
+
     <br>
+
+
+    {% if res != 'isset' %}
+
+        <div class="row">
+            <div class="col">
+                <b><label style="color: white" style="color: white" for="target">Выберите цель поездки</label></b>
+                <select id="target" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
+                    <option>{{ target_get }}</option>
+                    {% for target in targets_for_selector %}
+                        <option value="/help/rent?target={{ target.0 }}">{{ target.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
     {% if target == 'isset' %}
         <div class="row">
             <div class="col">
@@ -62,7 +75,7 @@
                     <option value="{{ url }}&count=2">2</option>
                     <option value="{{ url }}&count=3">3</option>
                     <option value="{{ url }}&count=4">4</option>
-                    <option value="{{ url }}&count=>5">>5</option>
+                    <option value="{{ url }}&count=5">>5</option>
                 </select>
             </div>
         </div>
@@ -105,9 +118,9 @@
             <div class="col">
                 <b><label style="color: white" for="trunk">Коробка передач</label></b>
                 <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
-                    <option value="{{ url }}&box=aut">Автомат</option>
-                    <option value="{{ url }}&box=mech">Механика</option>
-                    <option value="{{ url }}&box=android">Робот</option>
+                    <option value="{{ url }}&box=1">Автомат</option>
+                    <option value="{{ url }}&box=2">Механика</option>
+                    <option value="{{ url }}&box=3">Робот</option>
                 </select>
             </div>
         </div>
@@ -118,10 +131,10 @@
             <div class="col">
                 <b><label style="color: white" for="trunk">Для какой дороги требуется автомобиль</label></b>
                 <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
-                    <option value="{{ url }}&road=aut">Пересечённая местность</option>
-                    <option value="{{ url }}&road=mech">Горы</option>
-                    <option value="{{ url }}&road=android">Город</option>
-                    <option value="{{ url }}&road=android1">Песок</option>
+                    <option value="{{ url }}&road=1">Пересечённая местность</option>
+                    <option value="{{ url }}&road=2">Горы</option>
+                    <option value="{{ url }}&road=3">Город</option>
+                    <option value="{{ url }}&road=4">Песок</option>
                 </select>
             </div>
         </div>
@@ -176,11 +189,11 @@
             <div class="col">
                 <b><label style="color: white" for="trunk">Мощность двигателя</label></b>
                 <select id="trunk" class="form-select" onchange="document.location=this.options[this.selectedIndex].value">
-                    <option value="{{ url }}&power=3">50-70</option>
-                    <option value="{{ url }}&power=3">70-90</option>
-                    <option value="{{ url }}&power=3">90-120</option>
-                    <option value="{{ url }}&power=3">120-150</option>
-                    <option value="{{ url }}&power=3">150+</option>
+                    <option value="{{ url }}&power=50-70">50-70</option>
+                    <option value="{{ url }}&power=70-90">70-90</option>
+                    <option value="{{ url }}&power=90-120">90-120</option>
+                    <option value="{{ url }}&power=120-150">120-150</option>
+                    <option value="{{ url }}&power=150-360">150-360</option>
                 </select>
             </div>
         </div>
@@ -193,14 +206,40 @@
         <div class="row">
             <div class="col">
                 <h3 style="color: white"><b>Предположительно Вам подходят следующие автомобили:</b></h3>
-                {%  for l in list %}
-                    <h3 style="color: yellowgreen">{{ l }}</h3>
-                {% endfor %}
+{#                {%  for l in list %}#}
+{#                    <h3 style="color: yellowgreen">{{ l }}</h3>#}
+{#                {% endfor %}#}
             </div>
         </div>
     {% endif %}
 
 
+    {% else %}
+
+        {% for analiz_d in analiz %}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <img style="width: 310px; height: 150px;" src="{{ analiz_d.1 }}">
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h5>Автомобиль {{ analiz_d.0 }}</h5>
+                            <h5>Подходит Вам с вероятностью: {{ analiz_d.2 }}%</h5>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <a class="btn btn-primary">Заявка на аренду автомобиля</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+        {% endfor %}
+
+    {% endif %}
 
 
 

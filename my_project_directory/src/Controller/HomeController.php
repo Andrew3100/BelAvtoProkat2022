@@ -17,15 +17,6 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
-        /*Добавление записи в БД*/
-//        $array = ['Peugeot','Mercedes','Lada','Renault','Audi','Kia','Toyota','Skoda','Lexus','Mazda','Subaru','Nissan','Mitsubishi'];
-//        for ( $i = 0; $i < count($array); $i++) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $auto = new AutomobileMarks();
-//            $auto->setMarkName($array[$i]);
-//            $entityManager->persist($auto);
-//            $entityManager->flush();
-//        }
 
         /*Выборка данных из таблицы*/
         $mark_list = $this->getDoctrine()->getRepository(Automobiles::class)->findAll();
